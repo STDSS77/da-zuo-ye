@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>{{ items2[0][0] }}</title>
+        <link href="/styles.css" rel="stylesheet" />
+    </head>
+    <div class='c'>
+        <img class='v' src="https://www.tjpu.edu.cn/_upload/site/00/0c/12/logo.png" alt="" >
+        <h2>
+            {{ items2[0][0] }}你好，欢迎进入学生管理系统
+        </h2>
+    </div>
+    
+    
+    <body class="paper">
+
+        
+        <table class="grade-form" background-color="#444" >
+            <tr>
+                <th>姓名：{{ items2[0][0] }}</th>
+                <th>学号:{{ items2[0][1] }}</th>
+                <th>班级：{{ items2[0][2]}}</th>
+            </tr>
+        </table>
+
+        <form class='aa' action="/student/semester" method="post" style="margin-top:10px" ;>
+            学期: 
+            <select type="text" name="semester" id="">
+                <option value="">-----学期-----</option>
+                <option value="2020年春">2020年春</option>
+                <option value="2020年秋">2020年秋</option>
+                <option value="2021年春">2021年春</option>
+                <option value="2021年秋">2021年秋</option>
+                <option value="2022年春">2022年春</option>
+                <option value="2022年秋">2022年秋</option>
+                <option value="2023年春">2023年春</option>
+                <option value="2023年秋">2023年秋</option>
+                <option value="2024年春">2024年春</option>
+                <option value="2024年秋">2024年秋</option>
+            </select>
+            <input  type="submit" value="查询">
+        </form>
+
+        <table style="margin-top:-8px" >
+            <tr>
+                <th>课程名</th>
+                <th>课程时间</th>
+                <th>课程地点</th>
+            </tr>      
+            {% for item in items2 %}
+            <tr>
+                <td>{{ item[3] }}</td>
+                <td>{{ item[4] }}</td>
+                <td>{{ item[5]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/logout" method="post" style="margin-top:20px">
+            <input class="s" type="submit" value="退出登录">
+        </form>
+    
+    </body>
+</html>
